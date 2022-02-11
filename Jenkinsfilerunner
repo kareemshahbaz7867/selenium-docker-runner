@@ -10,7 +10,9 @@ pipeline{
 
 			stage("Bring down grid")
 			{
+			
 			sh "docker-compose down"
+			
 			}
 		}
 
