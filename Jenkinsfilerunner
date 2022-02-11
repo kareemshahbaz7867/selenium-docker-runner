@@ -2,11 +2,26 @@ pipeline{
 	agent any
 	stages
 		{
+		
+			stage("pull the latest image")
+			{
+				steps
+				{
+				sh "docker pull kareemshahbaz/selenium-docker"
+				}
+			}
+			
+			stage("start grid")
+			{
+			 
+			 sh " docker-compose up -d hub chrome firefox"
+			
+			}
 
 			stage("Run Test")
 			{
 				steps{
-				sh "docker-compose up"
+				sh "docker-compose up search-module book-flight-module"
 			}
 			}
 
